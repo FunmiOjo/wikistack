@@ -13,6 +13,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/users', userRouter);
 app.use('/wiki', wikiRouter);
 
+app.get('/', (req, res, next) => {
+  res.redirect('/wiki')
+})
+
 const PORT = 1337;
 
 const init = async () => {
