@@ -11,9 +11,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: false })); 
 const PORT = 1337;
 
-
-
-
 const init = async () => {
   await models.db.sync({force: true})
   //await models.Page.sync()
