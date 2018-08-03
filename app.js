@@ -4,11 +4,15 @@ const app = express();
 const models = require('./models')
 //const router = express.Router();
 const { db } = require('./models');
-
 var layout = require('./views/layout.js');
+const userRouter = require('./routes/user');
+const wikiRouter = require('./routes/wiki');
 
 app.use(express.static(__dirname + "/public"));
-app.use(express.urlencoded({ extended: false })); 
+app.use(express.urlencoded({ extended: false }));
+app.use('/users', userRouter);
+app.use('/wiki', wikiRouter);
+
 const PORT = 1337;
 
 const init = async () => {
